@@ -13,4 +13,13 @@
     <artifactId>decorators</artifactId>
     <packaging>war</packaging>
 
+    <properties>
+        <liberty.var.HTTP_PORT>9080</liberty.var.HTTP_PORT>
+        <liberty.var.HTTPS_PORT>9443</liberty.var.HTTPS_PORT>
+    </properties>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+
 </project>
