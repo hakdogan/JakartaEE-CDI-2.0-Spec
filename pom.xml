@@ -26,6 +26,7 @@
     <modules>
         <module>qualifiers</module>
         <module>decorators</module>
+        <module>scopes</module>
     </modules>
 
     <dependencies>
