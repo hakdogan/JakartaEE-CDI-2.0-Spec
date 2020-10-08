@@ -14,7 +14,7 @@ import java.math.RoundingMode;
 @LuxuryConsumption
 public class VAT25 implements VAT
 {
-    private final BigDecimal KDV = new BigDecimal(0.25);
+    private static final BigDecimal KDV = BigDecimal.valueOf(0.25);
 
     @Override
     public BigDecimal calculate(final BigDecimal price) {

@@ -13,7 +13,7 @@ import java.math.RoundingMode;
 @HouseHoldAppliances
 public class VAT18 implements VAT
 {
-    private final BigDecimal KDV = new BigDecimal(0.18);
+    private static final BigDecimal KDV = BigDecimal.valueOf(0.18);
 
     @Override
     public BigDecimal calculate(final BigDecimal price) {

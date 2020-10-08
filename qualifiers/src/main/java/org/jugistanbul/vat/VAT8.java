@@ -14,7 +14,7 @@ import java.math.RoundingMode;
 @StapleFood
 public class VAT8 implements VAT
 {
-    private final BigDecimal KDV = new BigDecimal(0.08);
+    private static final BigDecimal KDV = BigDecimal.valueOf(0.08);
 
     @Override
     public BigDecimal calculate(final BigDecimal price) {

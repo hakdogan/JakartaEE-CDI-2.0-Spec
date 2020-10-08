@@ -11,7 +11,7 @@ import java.util.Map;
 @ApplicationScoped
 public class TurkishNormalizer implements LanguageNormalizer {
 
-    public static Map<String, String> turkishCharacters = new HashMap<>();
+    protected static final Map<String, String> turkishCharacters = new HashMap<>();
 
     static {
         turkishCharacters.put("ç", "c");
@@ -27,7 +27,7 @@ public class TurkishNormalizer implements LanguageNormalizer {
 
     @Override
     public String normalize(final String text) {
-        final StringBuffer buffer = new StringBuffer();
+        final StringBuilder buffer = new StringBuilder();
         text.chars().mapToObj(Character::toChars).forEach(c -> {
             if (turkishCharacters.get(String.valueOf(c)) != null) {
                 buffer.append(turkishCharacters.get(String.valueOf(c)));
