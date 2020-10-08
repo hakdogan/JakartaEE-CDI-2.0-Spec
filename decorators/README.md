@@ -4,7 +4,7 @@ A `CDI decorator` is a Java class that is annotated `javax.decorator.Decorator` 
 
 ```xml
 <decorators>
-    <class>org.jugistanbul.decorator.MessageDecorator</class>
+    <class>org.jugistanbul.decorator.TextDecorator</class>
 </decorators>
 ```
 

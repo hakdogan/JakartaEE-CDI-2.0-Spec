@@ -10,14 +10,14 @@ import javax.inject.Inject;
  * Created on 8.10.2020
  **/
 @Decorator
-public class MessageDecorator implements LanguageNormalizer
+public class TextDecorator implements LanguageNormalizer
 {
     @Inject
     @Delegate
     private LanguageNormalizer delegate;
 
     @Override
-    public String normalize(String text) {
+    public String normalize(final String text) {
         return text + "\n\rThis message normalized by " + delegate.getClass().getName();
     }
 }

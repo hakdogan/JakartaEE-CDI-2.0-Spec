@@ -9,5 +9,5 @@ import java.math.BigDecimal;
 
 public interface VAT
 {
-    BigDecimal calculate(final BigDecimal price);
+    BigDecimal calculate(BigDecimal price);
 }

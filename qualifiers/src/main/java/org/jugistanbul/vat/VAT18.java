@@ -16,7 +16,7 @@ public class VAT18 implements VAT
     private final BigDecimal KDV = new BigDecimal(0.18);
 
     @Override
-    public BigDecimal calculate(BigDecimal price) {
+    public BigDecimal calculate(final BigDecimal price) {
         return price.multiply(KDV).setScale(2, RoundingMode.HALF_EVEN);
     }
 }
