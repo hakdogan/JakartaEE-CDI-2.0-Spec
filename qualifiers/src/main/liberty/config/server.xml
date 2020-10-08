@@ -3,11 +3,10 @@
 
     <featureManager>
         <feature>jaxrs-2.1</feature>
-        <feature>jsonb-1.0</feature>
         <feature>cdi-2.0</feature>
     </featureManager>
 
-    <webApplication location="qualifier.war" contextRoot="/" />
+    <webApplication location="qualifiers.war" contextRoot="/" />
     <applicationManager autoExpand="true" />
     <mpMetrics authentication="false"/>
     <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="${HTTP_PORT}" httpsPort="${HTTPS_PORT}"/>
