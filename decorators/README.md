@@ -1,6 +1,6 @@
 # Decorators
 
-A `CDI decorator` is a Java class that is annotated `javax.decorator.Decorator` and that has a corresponding decorators element in the `beans.xml` file. To demonstrate a decorator example, this repository contains a text normalizer example.
+A `CDI decorator` is a Java class that is annotated `javax.decorator.Decorator` and that has a corresponding decorators element in the `beans.xml` file. To demonstrate a decorator example, this module contains a text normalizer example.
 
 ```xml
 <decorators>
