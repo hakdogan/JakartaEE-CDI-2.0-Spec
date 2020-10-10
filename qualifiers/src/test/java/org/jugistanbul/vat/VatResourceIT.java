@@ -20,7 +20,9 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.URL;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author hakdogan (hakdogan@kodcu.com)
@@ -29,7 +31,9 @@ import java.net.URL;
 @RunWith(Arquillian.class)
 public class VatResourceIT {
 
-
+    private static final BigDecimal KDV8 = BigDecimal.valueOf(0.08);
+    private static final BigDecimal KDV18 = BigDecimal.valueOf(0.18);
+    private static final BigDecimal KDV25 = BigDecimal.valueOf(0.25);
     private static final String PATH = "api/vat";
     private final Client client;
 
@@ -54,32 +58,53 @@ public class VatResourceIT {
 
     @Test
     @RunAsClient
+    public void StapleFoodConsumptionTest(){
+
+        var price = BigDecimal.valueOf(getRandomPrice(200l, 1000l));
+        var product = Json.createObjectBuilder()
+                .add("name", "Feta Cheese")
+                .add("price", price)
+                .add("type", "STAPLE_FOOD")
+                .build();
+
+        var response = postRequest(product);
+        var result = response.readEntity(JsonObject.class);
+        var expected = price.multiply(KDV8).setScale(2, RoundingMode.HALF_EVEN);
+        Assert.assertEquals(expected, result.getJsonNumber("VAT").bigDecimalValue());
+    }
+
+    @Test
+    @RunAsClient
     public void HouseholdAppliancesConsumptionTest(){
 
+        var price = BigDecimal.valueOf(getRandomPrice(1000l, 10000l));
         var product = Json.createObjectBuilder()
                 .add("name", "Samsung UE50TU7000UXTK 50")
-                .add("price", BigDecimal.valueOf(4500))
+                .add("price", price)
                 .add("type", "HOUSEHOLD_APPLIANCES")
                 .build();
 
         var response = postRequest(product);
         var result = response.readEntity(JsonObject.class);
-        Assert.assertEquals(BigDecimal.valueOf(810.00).setScale(2), result.getJsonNumber("VAT").bigDecimalValue());
+        var expected = price.multiply(KDV18).setScale(2, RoundingMode.HALF_EVEN);
+        Assert.assertEquals(expected, result.getJsonNumber("VAT").bigDecimalValue());
     }
 
     @Test
     @RunAsClient
     public void luxuryConsumptionTest() {
 
+        var price = BigDecimal.valueOf(getRandomPrice(5000l, 25000l));
         var product = Json.createObjectBuilder()
                 .add("name", "MacBook Pro")
-                .add("price", BigDecimal.valueOf(10500))
+                .add("price", price)
                 .add("type", "LUXURY_CONSUMPTION")
                 .build();
 
         var response = postRequest(product);
         var result = response.readEntity(JsonObject.class);
-        Assert.assertEquals(BigDecimal.valueOf(2625.00).setScale(2), result.getJsonNumber("VAT").bigDecimalValue());
+        var expected = price.multiply(KDV25).setScale(2, RoundingMode.HALF_EVEN);
+        Assert.assertEquals(expected, result.getJsonNumber("VAT").bigDecimalValue());
 
     }
 
@@ -88,5 +113,9 @@ public class VatResourceIT {
         return webTarget.request(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .post(Entity.entity(product, MediaType.APPLICATION_JSON));
+    }
+
+    public Long getRandomPrice(final long origin, final long bound) {
+        return ThreadLocalRandom.current().nextLong(origin, bound);
     }
 }
