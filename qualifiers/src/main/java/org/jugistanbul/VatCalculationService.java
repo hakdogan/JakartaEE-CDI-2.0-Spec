@@ -8,7 +8,7 @@ import javax.ws.rs.core.Application;
  * Created on 7.10.2020
  **/
 
-@ApplicationPath("api")
-public class VatCalculationApp extends Application
+@ApplicationPath("/api")
+public class VatCalculationService extends Application
 {
 }

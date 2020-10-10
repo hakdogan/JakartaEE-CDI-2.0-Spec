@@ -18,4 +18,9 @@ jobs:
       with:
         java-version: '14'
     - name: Build with Maven
-      run: mvn clean install
+      run: |
+        mvn clean package -f qualifiers/pom.xml
+        mvn liberty:create liberty:install-feature liberty:deploy -f qualifiers/pom.xml
+        mvn liberty:configure-arquillian -f qualifiers/pom.xml
+        mvn verify -f qualifiers/pom.xml && mvn clean package -f decorators/pom.xml
+        mvn clean package -f scopes/pom.xml
