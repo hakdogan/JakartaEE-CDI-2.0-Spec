@@ -21,4 +21,5 @@ jobs:
       run: |
         mvn clean package
         mvn liberty:create liberty:install-feature liberty:deploy -f qualifiers/pom.xml
+        mvn liberty:create liberty:install-feature liberty:deploy -f decorators/pom.xml
         mvn verify
