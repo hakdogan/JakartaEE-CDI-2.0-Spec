@@ -44,10 +44,9 @@ public class VatResourceIT
 
     @Deployment
     public static WebArchive createDeployment() {
-        final WebArchive archive = ShrinkWrap.create(WebArchive.class,
+        return ShrinkWrap.create(WebArchive.class,
                 "arquillian-qualifiers.war")
                 .addPackages(true, "org.jugistanbul");
-        return archive;
     }
 
     @ArquillianResource
