@@ -1,4 +1,5 @@
 # Decorators
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=org.jugistanbul%3Adecorators&metric=coverage)](https://sonarcloud.io/dashboard?id=org.jugistanbul%3Adecorators)
 
 A `CDI decorator` is a Java class that is annotated `javax.decorator.Decorator` and that has a corresponding decorators element in the `beans.xml` file. To demonstrate a decorator example, this module contains a text normalizer example.
 
