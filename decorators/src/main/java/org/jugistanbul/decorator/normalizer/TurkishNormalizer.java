@@ -9,8 +9,8 @@ import java.util.Map;
  * Created on 8.10.2020
  **/
 @ApplicationScoped
-public class TurkishNormalizer implements LanguageNormalizer {
-
+public class TurkishNormalizer implements LanguageNormalizer
+{
     protected static final Map<String, String> turkishCharacters = new HashMap<>();
 
     static {

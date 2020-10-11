@@ -29,8 +29,8 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created on 9.10.2020
  **/
 @RunWith(Arquillian.class)
-public class VatResourceIT {
-
+public class VatResourceIT
+{
     private static final BigDecimal KDV8 = BigDecimal.valueOf(0.08);
     private static final BigDecimal KDV18 = BigDecimal.valueOf(0.18);
     private static final BigDecimal KDV25 = BigDecimal.valueOf(0.25);
