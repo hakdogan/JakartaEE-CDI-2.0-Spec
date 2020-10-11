@@ -52,9 +52,6 @@ public class VatResourceIT
     @ArquillianResource
     private URL baseURL;
 
-    @Inject
-    VATResource vatResource;
-
     @Test
     @RunAsClient
     public void StapleFoodConsumptionTest(){
