@@ -2,7 +2,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=org.jugistanbul%3Aqualifiers&metric=alert_status)](https://sonarcloud.io/dashboard?id=org.jugistanbul%3Aqualifiers)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=org.jugistanbul%3Aqualifiers&metric=coverage)](https://sonarcloud.io/dashboard?id=org.jugistanbul%3Aqualifiers)
 
-A `CDI qualifier` is an annotation to indicate the kind of a bean the class is. It uses to determine to CDI which bean implementation should be used at an injection point when multiple implementations exist. To demonstrate this behavior, this example contains a VAT calculation example.
+A `CDI qualifier` is an annotation to indicate the kind of a bean the class is. It uses to determine to CDI which bean implementation should be used at an injection point when multiple implementations exist. To demonstrate this behavior, this module contains a VAT calculation example.
 
 ```shell script
 curl -XPOST -H "Content-Type: application/json" http://localhost:9080/api/vat -d '{
