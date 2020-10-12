@@ -33,7 +33,7 @@ public class FileAccessor
     public String readString(final String name) {
         var fullPath = String.join("/",
                 System.getProperty("user.dir")
-                        .substring(0, System.getProperty("user.dir").lastIndexOf("target")),
+                        .substring(0, System.getProperty("user.dir").lastIndexOf("/target")),
                 PATH, name);
 
         var checkerMap = checker.getCheckerMap();
