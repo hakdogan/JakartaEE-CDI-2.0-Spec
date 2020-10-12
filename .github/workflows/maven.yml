@@ -22,4 +22,6 @@ jobs:
         mvn clean package
         mvn liberty:create liberty:install-feature liberty:deploy -f qualifiers/pom.xml
         mvn liberty:create liberty:install-feature liberty:deploy -f decorators/pom.xml
+        mvn liberty:create liberty:install-feature liberty:deploy -f scopes/pom.xml
+        mvn liberty:create liberty:install-feature liberty:deploy -f interceptors/pom.xml
         mvn verify
