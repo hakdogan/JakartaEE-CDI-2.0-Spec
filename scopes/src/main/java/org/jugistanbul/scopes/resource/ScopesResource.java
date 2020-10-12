@@ -2,7 +2,7 @@ package org.jugistanbul.scopes.resource;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
-
+import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * Created on 8.10.2020
  **/
 @Path("scopes")
-@Consumes(APPLICATION_JSON)
+@Consumes(TEXT_PLAIN)
 @Produces(APPLICATION_JSON)
 public class ScopesResource
 {
