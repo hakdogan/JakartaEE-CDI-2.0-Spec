@@ -16,14 +16,14 @@ mvn liberty:dev #or mvn liberty:run
 ```
 ## How do I run tests?
 
-Examples of this repository use Arquillian for tests. Therefore, you must run the liberty-maven-plugin goals to create the application server, install the features, and deploy the application to the server if you haven't run the following commands before.
+Examples of this repository use `Arquillian` for tests. Therefore, you must run the `liberty-maven-plugin` goals to create the application server, install the features, and deploy the application to the server if you haven't run the following commands before.
 
 ```shell script
 mvn clean package
 mvn liberty:create liberty:install-feature liberty:deploy
 ```
 
-After that, you can run the Arquillian tests with the following goal
+After that, you can run the `Arquillian tests` with the following goal
 
 ```shell script
 mvn verify
