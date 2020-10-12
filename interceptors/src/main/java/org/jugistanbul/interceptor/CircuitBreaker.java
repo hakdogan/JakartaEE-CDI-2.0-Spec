@@ -26,7 +26,7 @@ public class CircuitBreaker
     private Logger logger;
 
     @AroundInvoke
-    public Object faultToleranceControl(InvocationContext ic) throws Exception {
+    public Object checkFaultTolerance(InvocationContext ic) throws Exception {
 
         var fileName = Arrays.stream(ic.getParameters()).findFirst().get().toString();
         var checkerMap = checker.getCheckerMap();
