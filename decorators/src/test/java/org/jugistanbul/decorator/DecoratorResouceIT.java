@@ -32,7 +32,7 @@ public class DecoratorResouceIT
 
     @Deployment
     public static WebArchive createDeployment() {
-        BeansDescriptor beans = Descriptors.create(BeansDescriptor.class)
+        var beans = Descriptors.create(BeansDescriptor.class)
                 .getOrCreateDecorators().clazz("org.jugistanbul.decorator.TextDecorator").up();
         return ShrinkWrap.create(WebArchive.class, "arquillian-decorators.war")
                 .addPackages(true, "org.jugistanbul.decorator")
