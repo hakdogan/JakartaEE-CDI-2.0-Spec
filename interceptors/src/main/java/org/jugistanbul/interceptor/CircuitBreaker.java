@@ -1,5 +1,6 @@
 package org.jugistanbul.interceptor;
 
+import org.jugistanbul.interceptor.exception.FaultToleranceTimeOutException;
 import org.slf4j.Logger;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
@@ -43,7 +44,7 @@ public class CircuitBreaker
                 logger.info("The file access request can be executed because time out of fault-tolerant passed!");
             } else {
                 logger.info("The file access request can't be executed!");
-                throw new FileNotFoundException();
+                throw new FaultToleranceTimeOutException("The file access request can be executed after the timeout has been reset!");
             }
         } else {
             logger.info("The file access request can't be executed!");
