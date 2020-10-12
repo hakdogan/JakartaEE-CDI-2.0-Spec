@@ -43,7 +43,7 @@ public class FileAccessor
             Optional.ofNullable(checkerMap.get(name)).ifPresent(n -> n.remove(name));
         } catch (IOException ioe) {
             checkerMap.put(name, updateFaultTolerantObject(checkerMap.get(name)));
-            logger.error("IOException was thrown! {}", checkerMap.get(name).getInt("count"));
+            logger.error("IOException was thrown!");
         }
 
         logger.info(result);
