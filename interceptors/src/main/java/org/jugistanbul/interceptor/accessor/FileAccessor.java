@@ -2,7 +2,7 @@ package org.jugistanbul.interceptor.accessor;
 
 import org.jugistanbul.interceptor.Breaker;
 import org.jugistanbul.interceptor.Checker;
-import org.slf4j.Logger;
+import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.Json;
@@ -43,7 +43,7 @@ public class FileAccessor
             Optional.ofNullable(checkerMap.get(name)).ifPresent(n -> n.remove(name));
         } catch (IOException ioe) {
             checkerMap.put(name, updateFaultTolerantObject(checkerMap.get(name)));
-            logger.error("IOException was thrown!");
+            logger.warning("IOException was thrown!");
         }
 
         logger.info(result);

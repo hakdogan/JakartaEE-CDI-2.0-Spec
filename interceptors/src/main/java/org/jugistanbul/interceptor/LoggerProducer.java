@@ -1,7 +1,6 @@
 package org.jugistanbul.interceptor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.logging.Logger;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
@@ -14,6 +13,6 @@ public class LoggerProducer
 {
     @Produces
     public Logger exposeLogger(InjectionPoint injectionPoint) {
-        return LoggerFactory.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
+        return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
     }
 }

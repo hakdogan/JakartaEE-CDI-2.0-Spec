@@ -1,12 +1,11 @@
 package org.jugistanbul.interceptor;
 
 import org.jugistanbul.interceptor.exception.FaultToleranceTimeOutException;
-import org.slf4j.Logger;
+import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
-import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
@@ -42,12 +41,9 @@ public class CircuitBreaker
                 checkerMap.remove(fileName);
                 logger.info("The file access request can be executed because time out of fault-tolerant passed!");
             } else {
-                logger.info("The file access request can't be executed!");
+                logger.info("The file access request can be executed after the timeout has been reset!");
                 throw new FaultToleranceTimeOutException("The file access request can be executed after the timeout has been reset!");
             }
-        } else {
-            logger.info("The file access request can't be executed!");
-            throw new FileNotFoundException();
         }
         return ic.proceed();
     }
