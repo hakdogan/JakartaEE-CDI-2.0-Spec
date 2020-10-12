@@ -8,3 +8,23 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=org.jugistanbul%3ACDI2.0&metric=coverage)](https://sonarcloud.io/dashboard?id=org.jugistanbul%3ACDI2.0)
 
 This repository contains some implementations of the `JakartaEE CDI 2.0 specification`. Details of each application can be found in its own `readme` file.
+
+## How do I run the examples?
+
+```shell script
+mvn liberty:dev #or mvn liberty:run
+```
+## How do I run tests?
+
+Examples of this repository use Arquillian for tests. Therefore, you must run the liberty-maven-plugin goals to create the application server, install the features, and deploy the application to the server if you haven't run the following commands before.
+
+```shell script
+mvn clean package
+mvn liberty:create liberty:install-feature liberty:deploy
+```
+
+After that, you can run the Arquillian tests with the following goal
+
+```shell script
+mvn verify
+```

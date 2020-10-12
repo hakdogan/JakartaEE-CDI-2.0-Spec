@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 
-
 /**
  * @author hakdogan (hakdogan@kodcu.com)
  * Created on 11.10.2020
@@ -29,13 +28,13 @@ public class CircuitBreaker
     @AroundInvoke
     public Object checkFaultTolerance(InvocationContext ic) throws Exception {
 
-        var fileName = Arrays.stream(ic.getParameters()).findFirst().get().toString();
+        var fileName = Arrays.stream(ic.getParameters()).findFirst().orElse("");
         var checkerMap = checker.getCheckerMap();
         var faultObject = checkerMap.get(fileName);
 
         if (null == faultObject || faultObject.getInt("count") < checker.getFaultTolerant()) {
             logger.info("The file access request can be executed!");
-        } else if (null != faultObject) {
+        } else if (faultObject.getInt("count") >= checker.getFaultTolerant()){
             var lastTime = LocalDateTime.parse(faultObject.getString("time"));
             var millis = lastTime.until(LocalDateTime.now(), ChronoUnit.MILLIS);
 
