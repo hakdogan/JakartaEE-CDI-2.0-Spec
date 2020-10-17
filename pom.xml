@@ -25,6 +25,7 @@
     </properties>
 
     <modules>
+        <module>alternatives</module>
         <module>qualifiers</module>
         <module>decorators</module>
         <module>scopes</module>
