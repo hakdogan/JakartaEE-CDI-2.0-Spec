@@ -50,6 +50,6 @@ public class SpecializeResourceIT
                 .accept(MediaType.TEXT_PLAIN)
                 .get().readEntity(String.class);
 
-        Assert.assertEquals(result, EXPECTED_MESSAGE);
+        Assert.assertEquals(EXPECTED_MESSAGE, result);
     }
 }
