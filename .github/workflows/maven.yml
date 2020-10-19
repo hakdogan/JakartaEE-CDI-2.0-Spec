@@ -25,4 +25,5 @@ jobs:
         mvn liberty:create liberty:install-feature liberty:deploy -f interceptors/pom.xml
         mvn liberty:create liberty:install-feature liberty:deploy -f qualifiers/pom.xml
         mvn liberty:create liberty:install-feature liberty:deploy -f scopes/pom.xml
+        mvn liberty:create liberty:install-feature liberty:deploy -f specializes/pom.xml
         mvn verify
