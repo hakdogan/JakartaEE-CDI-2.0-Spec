@@ -1,6 +1,5 @@
 package org.jugistanbul.specialize.service;
 
-import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Specializes;
 
 /**
