@@ -30,6 +30,7 @@
         <module>decorators</module>
         <module>scopes</module>
         <module>interceptors</module>
+        <module>specializes</module>
     </modules>
 
     <dependencyManagement>
