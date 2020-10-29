@@ -14,9 +14,9 @@ public class ScopedNumbers
 {
     @Produces
     @ApplicationScoped
-    private List<Long> sessionScopedCount = List.of();
+    private List<Long> sessionScopedCount = new ArrayList<>();
 
     @Produces
     @RequestScoped
-    private List<Integer> requestScopedCount = List.of();
+    private List<Integer> requestScopedCount = new ArrayList<>();
 }
