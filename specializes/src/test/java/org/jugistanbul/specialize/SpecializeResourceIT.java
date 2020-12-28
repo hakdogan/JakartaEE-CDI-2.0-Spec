@@ -24,7 +24,8 @@ import java.net.URL;
 public class SpecializeResourceIT
 {
     private static final String PATH = "api/service";
-    private static final String EXPECTED_MESSAGE = "Mock asynchronous service";
+    private static final String SERVICE_NAME = "Service name [Mock asynchronous service]";
+    private static final String SERVICE_TYPE = "service type [mock]";
     private final Client client;
 
     public SpecializeResourceIT() {
@@ -43,13 +44,14 @@ public class SpecializeResourceIT
 
     @Test
     @RunAsClient
-    public void getHHH(){
+    public void serviceNameAndTypeTest(){
 
         var webTarget = client.target(baseURL.toString()).path(PATH);
         var result = webTarget.request(MediaType.TEXT_PLAIN)
                 .accept(MediaType.TEXT_PLAIN)
                 .get().readEntity(String.class);
 
-        Assert.assertEquals(EXPECTED_MESSAGE, result);
+        Assert.assertTrue(result.contains(SERVICE_NAME));
+        Assert.assertTrue(result.contains(SERVICE_TYPE));
     }
 }
