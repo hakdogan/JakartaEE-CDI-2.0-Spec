@@ -24,4 +24,7 @@ It also can be used to specialize in a `producer method`.
         return this;
     }
 ```
- 
+## Run to test
+```shell
+mvn liberty:create liberty:install-feature liberty:deploy verify
+```
