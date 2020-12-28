@@ -1,6 +1,7 @@
 package org.jugistanbul.specialize.resource;
 
 import org.jugistanbul.specialize.annotation.Asynchronous;
+import org.jugistanbul.specialize.identify.Identifier;
 import org.jugistanbul.specialize.service.Service;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -22,8 +23,12 @@ public class SpecializeResource
     @Asynchronous
     private Service service;
 
+    @Inject
+    private Identifier identifier;
+
     @GET
-    public String getMockObject(){
-        return service.info();
+    public String getServiceInfo(){
+        return String.format("Service name [%s] service type [%s]",
+                service.info(), identifier.typeInfo());
     }
 }
