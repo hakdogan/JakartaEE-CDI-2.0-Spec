@@ -13,4 +13,15 @@ public class MockAsynchronousService extends AsynchronousService
     }
 }
 ```
+
+It also can be used to specialize in a `producer method`.
+
+```java
+    @Override
+    @Specializes
+    @Produces
+    public Identifier getIdentifier() {
+        return this;
+    }
+```
  
