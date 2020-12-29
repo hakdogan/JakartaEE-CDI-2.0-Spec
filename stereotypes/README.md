@@ -24,3 +24,8 @@ public class Pseudo implements Crawler
     }
 }
 ```
+
+## Run to test
+```shell
+mvn clean liberty:create liberty:install-feature verify
+```
