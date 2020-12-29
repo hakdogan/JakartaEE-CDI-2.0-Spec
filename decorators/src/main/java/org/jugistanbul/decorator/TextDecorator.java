@@ -18,6 +18,6 @@ public class TextDecorator implements LanguageNormalizer
 
     @Override
     public String normalize(final String text) {
-        return text + "\n\rThis message normalized by " + delegate.getClass().getName();
+        return delegate.normalize(text) + "\n\rThis message normalized by " + delegate.getClass().getName();
     }
 }
