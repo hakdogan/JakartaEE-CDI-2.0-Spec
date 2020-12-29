@@ -31,9 +31,42 @@ public Object checkFaultTolerance(InvocationContext ic) throws Exception {
 ```
 
 ```shell script
-curl -XGET http://localhost:9080/api/accessor/readme.txt
-Hello                                                   
-                                                                                                        
-curl -XGET http://localhost:9080/api/accessor/anyfile.txt
-The file in /Users/hakdogan/Repository/CDI2.0/interceptors/src/main/resources/anyfile.txt path could not be read
+http -v GET localhost:9080/api/accessor/readme.txt
+GET /api/accessor/readme.txt HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:9080
+User-Agent: HTTPie/2.3.0
+
+HTTP/1.1 200 OK
+Content-Language: en-TR
+Content-Length: 5
+Content-Type: text/plain
+Date: Tue, 29 Dec 2020 13:15:34 GMT
+X-Powered-By: Servlet/4.0
+
+Hello
+                                                                                               
+~ http -v GET localhost:9080/api/accessor/anyfile.txt
+GET /api/accessor/anyfile.txt HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:9080
+User-Agent: HTTPie/2.3.0
+
+HTTP/1.1 200 OK
+Content-Language: en-TR
+Content-Length: 130
+Content-Type: text/plain
+Date: Tue, 29 Dec 2020 13:16:53 GMT
+X-Powered-By: Servlet/4.0
+
+The file in /Users/hakdogan/Repositories/JakartaEE-CDI-2.0-Spec/interceptors/src/main/resources/anyfile.txt path could not be read
+```
+
+## Run to test
+```shell
+mvn clean liberty:create liberty:install-feature verify
 ```
