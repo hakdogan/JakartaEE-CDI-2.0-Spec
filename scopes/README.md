@@ -17,12 +17,85 @@ public class ScopedNumbers
 ```
 
 ```shell script
-curl -XGET http://localhost:9080/api/scopes/statefull/1
-[1]
-curl -XGET http://localhost:9080/api/scopes/statefull/2
-[1,2]
-curl -XGET http://localhost:9080/api/scopes/stateless/1
-[1]
-curl -XGET http://localhost:9080/api/scopes/stateless/2
-[2]
+~ http -v GET localhost:9080/api/scopes/statefull/1
+GET /api/scopes/statefull/1 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:9080
+User-Agent: HTTPie/2.3.0
+
+HTTP/1.1 200 OK
+Content-Language: en-TR
+Content-Length: 3
+Content-Type: application/json
+Date: Tue, 29 Dec 2020 13:37:15 GMT
+X-Powered-By: Servlet/4.0
+
+[
+    1
+]
+
+~ http -v GET localhost:9080/api/scopes/statefull/2
+GET /api/scopes/statefull/2 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:9080
+User-Agent: HTTPie/2.3.0
+
+HTTP/1.1 200 OK
+Content-Language: en-TR
+Content-Length: 5
+Content-Type: application/json
+Date: Tue, 29 Dec 2020 13:37:43 GMT
+X-Powered-By: Servlet/4.0
+
+[
+    1,
+    2
+]
+
+http -v GET localhost:9080/api/scopes/stateless/1
+GET /api/scopes/stateless/1 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:9080
+User-Agent: HTTPie/2.3.0
+
+HTTP/1.1 200 OK
+Content-Language: en-TR
+Content-Length: 3
+Content-Type: application/json
+Date: Tue, 29 Dec 2020 13:38:08 GMT
+X-Powered-By: Servlet/4.0
+
+[
+    1
+]
+
+~ http -v GET localhost:9080/api/scopes/stateless/2
+GET /api/scopes/stateless/2 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:9080
+User-Agent: HTTPie/2.3.0
+
+HTTP/1.1 200 OK
+Content-Language: en-TR
+Content-Length: 3
+Content-Type: application/json
+Date: Tue, 29 Dec 2020 13:38:47 GMT
+X-Powered-By: Servlet/4.0
+
+[
+    2
+]
+```
+
+## Run to test
+```shell
+mvn clean liberty:create liberty:install-feature verify
 ```
