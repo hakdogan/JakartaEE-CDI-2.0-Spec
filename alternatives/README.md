@@ -13,3 +13,7 @@ public class CowboyProgrammer implements Programmer
     }
 }
 ```
+## Run to test
+```shell
+mvn clean liberty:create liberty:install-feature verify
+```
